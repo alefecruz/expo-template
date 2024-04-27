@@ -1,0 +1,3 @@
+utils:
+  description: >
+    Diretório contendo funções e classes utilitárias reutilizáveis em várias partes do projeto.

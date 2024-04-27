@@ -1,0 +1,4 @@
+constants:
+  description: >
+    Constantes globais ou configurações específicas do projeto que são utilizadas em várias 
+    partes do código. Isso pode incluir URLs de API, chaves de autenticação, configurações de tema, etc.

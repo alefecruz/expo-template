@@ -1,0 +1,3 @@
+services:
+  description: >
+    Módulos responsáveis por interações com serviços externos, como APIs, bancos de dados, sistemas de arquivos, etc.

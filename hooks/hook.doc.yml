@@ -1,0 +1,3 @@
+hooks:
+  description: >
+    Hooks personalizados criados para lidar com lógica de negócios ou integrações específicas no aplicativo.

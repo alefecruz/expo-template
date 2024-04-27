@@ -1,0 +1,32 @@
+components:
+  description: >
+    Componentes reutilizáveis que compõem a interface do usuário do aplicativo. Isso pode incluir componentes de
+    interface de usuário como botões, formulários, barras de navegação, etc.
+
+  atomic_design:
+    description: >
+      Atomic Design é uma metodologia criada por Brad Frost que propõe uma abordagem sistemática para construir 
+      interfaces de usuário. Ele divide a interface em cinco níveis de abstração: átomos, moléculas, organismos, 
+      templates e páginas."
+
+    levels:
+      - name: "Átomos"
+        description: >
+          Os átomos são os componentes mais básicos e indivisíveis, como botões, campos de texto, ícones, etc. 
+          Eles geralmente não são compostos de outros componentes.
+      - name: "Moléculas"
+        description: >
+          As moléculas são grupos de átomos que funcionam juntos para formar um componente mais complexo.
+          Por exemplo, um campo de entrada com um rótulo.
+      - name: "Organismos"
+        description: >
+          Os organismos são conjuntos de moléculas e/ou átomos que formam componentes mais distintos
+          e completos, como um formulário de login.
+      - name: "Templates"
+        description: >
+          Os templates são estruturas de alto nível que combinam diferentes organismos para formar layouts
+          completos e reutilizáveis."
+      - name: "Páginas"
+        description: >
+          As páginas são instâncias específicas dos templates, onde o conteúdo é populado para criar páginas 
+          únicas do aplicativo."

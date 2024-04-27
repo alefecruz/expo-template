@@ -1,0 +1,4 @@
+libs:
+  description: >
+    Adaptador para bibliotecas externas ou dependências do projeto que não são fornecidas pelo sistema de 
+    gerenciamento de pacotes. Isso pode incluir bibliotecas de terceiros ou código personalizado compartilhado entre projetos.
