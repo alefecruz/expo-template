@@ -12,7 +12,7 @@ components:
     levels:
       - name: "Átomos"
         description: >
-          Os átomos são os componentes mais básicos e indivisíveis, como botões, campos de texto, ícones, etc. 
+          Os átomos são os componentes mais básicos e indivisíveis, campos de texto, ícones, etc. 
           Eles geralmente não são compostos de outros componentes.
       - name: "Moléculas"
         description: >

@@ -1,4 +1,4 @@
-export interface SizeFormat {
+export type ISizeTheme = {
   // global sizes
   BASE: number;
   RADIUS: number;
@@ -8,11 +8,11 @@ export interface SizeFormat {
   H3: number;
   H4: number;
   H5: number;
-  P: number;
-  TEXT: number;
-}
+  PARAGRAPH: number;
+  STANDARD: number;
+};
 
-export const DEFAULT_SIZES: SizeFormat = {
+export const SIZES: ISizeTheme = {
   // global sizes
   BASE: 8,
   RADIUS: 4,
@@ -22,6 +22,6 @@ export const DEFAULT_SIZES: SizeFormat = {
   H3: 32,
   H4: 24,
   H5: 18,
-  P: 16,
-  TEXT: 14,
+  PARAGRAPH: 16,
+  STANDARD: 14,
 };

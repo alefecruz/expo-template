@@ -1,6 +1,6 @@
 import { ICSSProp } from '@/libs/style';
 
-export interface IColorTheme {
+export type IColorTheme = {
   ACCENTED: ICSSProp;
   PRIMARY: ICSSProp;
   SECONDARY: ICSSProp;
@@ -8,9 +8,9 @@ export interface IColorTheme {
   DANGER: ICSSProp;
   LIGHT: ICSSProp;
   DARK: ICSSProp;
-}
+};
 
-export const DEFAULT_COLORS: IColorTheme = {
+export const COLORS: IColorTheme = {
   ACCENTED: '#41A152',
   PRIMARY: '#4B4B4B',
   SECONDARY: '#E1E1E1',

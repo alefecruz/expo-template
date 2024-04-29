@@ -1,6 +1,6 @@
-import { DEFAULT_SIZES } from './sizes';
+import { SIZES } from './sizes';
 
-export interface SpacingFormat {
+export type ISpacingTheme = {
   XS: number;
   S: number;
   SM: number;
@@ -9,15 +9,15 @@ export interface SpacingFormat {
   L: number;
   XL: number;
   XXL: number;
-}
+};
 
-export const DEFAULT_SPACINGS: SpacingFormat = {
-  XS: DEFAULT_SIZES.BASE * 0.5, // xs: 4px
-  S: DEFAULT_SIZES.BASE * 1, // s: 8px
-  SM: DEFAULT_SIZES.BASE * 2, // sm: 16px
-  M: DEFAULT_SIZES.BASE * 3, // m: 24px
-  MD: DEFAULT_SIZES.BASE * 4, // md: 32px
-  L: DEFAULT_SIZES.BASE * 5, // l: 40px
-  XL: DEFAULT_SIZES.BASE * 6, // xl: 48px
-  XXL: DEFAULT_SIZES.BASE * 7, // xxl: 56px
+export const SPACINGS: ISpacingTheme = {
+  XS: SIZES.BASE * 0.5, // xs: 4px
+  S: SIZES.BASE * 1, // s: 8px
+  SM: SIZES.BASE * 2, // sm: 16px
+  M: SIZES.BASE * 3, // m: 24px
+  MD: SIZES.BASE * 4, // md: 32px
+  L: SIZES.BASE * 5, // l: 40px
+  XL: SIZES.BASE * 6, // xl: 48px
+  XXL: SIZES.BASE * 7, // xxl: 56px
 };

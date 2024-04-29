@@ -1,9 +1,4 @@
-import styled, { css, ThemeProvider, CSSProp, DefaultTheme } from 'styled-components';
+import { CSSProp } from 'styled-components';
+import styled, { css, ThemeProvider, DefaultTheme } from 'styled-components/native';
 
-export {
-  styled as default,
-  css,
-  ThemeProvider,
-  CSSProp as ICSSProp,
-  DefaultTheme as IDefaultTheme,
-};
+export { styled, css, ThemeProvider, CSSProp as ICSSProp, DefaultTheme as IDefaultTheme };

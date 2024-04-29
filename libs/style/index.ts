@@ -1,2 +1,2 @@
 export * from './adapter';
-export * from './theme-render';
+export * from './theme';

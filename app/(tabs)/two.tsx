@@ -1,11 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
+import { Text } from '@/components/atoms/Text';
 
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text format="H1" fontStyle="ITALIC" letterCase="CAPTALIZE" color="DANGER">
+        Álefe Cruz da Silva
+      </Text>
+      <Text format="H2" align="JUSTIFY" color="DANGER">
+        Tab Two
+      </Text>
+
       <View style={styles.separator} />
       <EditScreenInfo path="app/(tabs)/two.tsx" />
     </View>
