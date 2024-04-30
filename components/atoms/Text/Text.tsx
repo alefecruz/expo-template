@@ -5,20 +5,18 @@ import * as S from './styles';
 import { capitalize } from '@/utils/text-helper';
 
 export type ITextProps = {
-  format?: S.IVariantTextProps['format'];
-  fontStyle?: S.IVariantTextProps['fontStyle'];
-  letterCase?: S.IVariantTextProps['letterCase'];
-  color?: S.IVariantTextProps['color'];
-  align?: S.IVariantTextProps['align'];
+  format?: S.ITextVariants['format'];
+  fontStyle?: S.ITextVariants['fontStyle'];
+  letterCase?: S.ITextVariants['letterCase'];
+  color?: S.ITextVariants['color'];
+  align?: S.ITextVariants['align'];
   text?: string;
   children?: React.ReactElement | string;
 };
 
-export const Text = (props: ITextProps) => {
-  const { children, letterCase, text } = props;
-
+export const Text = ({ children, letterCase, text, ...rest }: ITextProps) => {
   return (
-    <S.TextComponent {...props}>
+    <S.TextComponent {...rest}>
       {letterCase === 'CAPTALIZE' && text ? capitalize(text) : text || children}
     </S.TextComponent>
   );

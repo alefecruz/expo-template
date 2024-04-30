@@ -1,4 +1,4 @@
 component:
-  name: Text
+  name: TextInput
   description: >
-    Componente de texto.
+    Componente de entrada de texto.

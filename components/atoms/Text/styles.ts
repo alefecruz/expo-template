@@ -2,7 +2,7 @@ import { ITextProps } from './Text';
 
 import { styled, css, IDefaultTheme } from '@/libs/style';
 
-export type IVariantTextProps = {
+export type ITextVariants = {
   format: keyof typeof FORMATS;
   color: keyof IDefaultTheme['COLORS'];
   fontStyle: keyof typeof FONT_STYLES;
@@ -46,13 +46,15 @@ export const FONT_STYLES = {
 
 export const LETTER_CASES = {
   UPPER_CASE: css`
-    text-transform: normal;
+    text-transform: uppercase;
   `,
   LOWER_CASE: css`
     text-transform: lowercase;
   `,
   CAPTALIZE: css``,
-  NONE: css``,
+  NONE: css`
+    text-transform: normal;
+  `,
 };
 
 export const ALIGNS = {

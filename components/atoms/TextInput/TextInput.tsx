@@ -14,12 +14,10 @@ export type ITextInput = {
   onChange?: (value: number | string) => void;
 };
 
-export const TextInput = (props: ITextInput) => {
-  const { type = 'text', isDisabled, onChange } = props;
-
+export const TextInput = ({ type = 'text', isDisabled, onChange, ...rest }: ITextInput) => {
   return (
     <S.TextInputComponent
-      {...props}
+      {...rest}
       onChangeText={async (value: string) => {
         onChange && onChange(type === 'decimal' || type === 'number' ? Number(value) : value);
       }}
