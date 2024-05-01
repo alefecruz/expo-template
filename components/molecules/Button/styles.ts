@@ -1,6 +1,6 @@
 import { ColorValue } from 'react-native';
 
-import { IButton } from './Button';
+import { IButtonProps } from './Button';
 
 import { styled, theme, IDefaultTheme } from '@/libs/style';
 
@@ -8,7 +8,7 @@ export type IButtonVariants = {
   color: keyof IDefaultTheme['COLORS'];
 };
 
-export const ButtonComponent = styled.TouchableOpacity<Omit<IButton, 'label'>>`
+export const ButtonComponent = styled.TouchableOpacity<Omit<IButtonProps, 'label'>>`
   width: 100%;
   margin: 10px 0;
   padding: 10px 12px;

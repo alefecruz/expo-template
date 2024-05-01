@@ -5,7 +5,9 @@ import * as validationHelper from '@/utils/validation-helper';
 type IOptions = {
   message: string;
 };
-type IValidationFunction = (value: any) => boolean | string;
+
+export type IFormValidation = Validation;
+export type IValidationFunction = (value: any) => boolean | string;
 
 class Validation {
   public get: Record<string, IValidationFunction> = {};
@@ -17,7 +19,7 @@ class Validation {
     this.get[functionName] = validateFn;
   }
 
-  required(options: IOptions) {
+  required(options?: IOptions) {
     this._addValidate(
       this.required.name,
       (value) =>
@@ -26,7 +28,7 @@ class Validation {
     return this;
   }
 
-  positive(options: IOptions) {
+  positive(options?: IOptions) {
     this._addValidate(
       this.positive.name,
       (value) =>
@@ -38,7 +40,7 @@ class Validation {
     return this;
   }
 
-  falsable(options: IOptions) {
+  falsable(options?: IOptions) {
     this._addValidate(
       this.falsable.name,
       (value) =>
@@ -50,7 +52,7 @@ class Validation {
     return this;
   }
 
-  integer(options: IOptions) {
+  integer(options?: IOptions) {
     this._addValidate(
       this.integer.name,
       (value) =>
@@ -62,7 +64,7 @@ class Validation {
     return this;
   }
 
-  isEmail(options: IOptions) {
+  isEmail(options?: IOptions) {
     this._addValidate(
       this.isEmail.name,
       (value) =>
@@ -74,7 +76,7 @@ class Validation {
     return this;
   }
 
-  isPassword(options: IOptions) {
+  isPassword(options?: IOptions) {
     this._addValidate(
       this.isPassword.name,
       (value) =>
@@ -86,7 +88,7 @@ class Validation {
     return this;
   }
 
-  lessOrIqualThan(otherValue: number, options: IOptions) {
+  lessOrIqualThan(otherValue: number, options?: IOptions) {
     this._addValidate(
       this.lessOrIqualThan.name,
       (value) =>
@@ -98,7 +100,7 @@ class Validation {
     return this;
   }
 
-  lessThan(otherValue: number, options: IOptions) {
+  lessThan(otherValue: number, options?: IOptions) {
     this._addValidate(
       this.lessThan.name,
       (value) =>
@@ -110,7 +112,7 @@ class Validation {
     return this;
   }
 
-  moreOrIqualThan(otherValue: number, options: IOptions) {
+  moreOrIqualThan(otherValue: number, options?: IOptions) {
     this._addValidate(
       this.moreOrIqualThan.name,
       (value) =>
@@ -122,7 +124,7 @@ class Validation {
     return this;
   }
 
-  moreThan(otherValue: number, options: IOptions) {
+  moreThan(otherValue: number, options?: IOptions) {
     this._addValidate(
       this.moreThan.name,
       (value) =>
@@ -134,7 +136,7 @@ class Validation {
     return this;
   }
 
-  truth(options: IOptions) {
+  truth(options?: IOptions) {
     this._addValidate(
       this.truth.name,
       (value) =>

@@ -1,4 +1,6 @@
-export function capitalize(text: string): string {
+export function capitalize(text: string | undefined): string {
+  if (!text) return '';
+
   const prepositions = ['de', 'da', 'do', 'dos', 'das'];
   return text
     .split(' ')

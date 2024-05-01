@@ -1,13 +1,12 @@
-import { ITextProps } from '@/components/atoms/Text';
+import { IFieldLabelProps } from '@/libs/form/components/FieldLabel';
+import { IFieldTextInputProps } from '@/libs/form/components/FieldTextInput';
 
-type Modify<T, R> = Pick<T, Exclude<keyof T, keyof R>> & R;
+export type IFields = {
+  fieldTextInputProps?: IFieldTextInputProps;
+  fieldLabelProps?: IFieldLabelProps;
+};
 
-export interface IFields {
-  // fieldTextInputProps?: Modify<IFieldTextInput, { defaultValue: string | string[] }>;
-
-  fieldLabelProps?: ITextProps;
-  // fieldButton?: IButton;
-}
+export type IFieldRegistred = Omit<IFields, 'fieldLabelProps'>;
 
 export type IQuestion = {
   label?: string;

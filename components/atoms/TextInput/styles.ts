@@ -1,6 +1,5 @@
-import { ITextInput } from './TextInput';
+import { ITextInputProps } from './TextInput';
 
-import { MaskedTextInput } from '@/libs/input-mask';
 import { styled, theme } from '@/libs/style';
 
 const setKeyboardType = {
@@ -21,13 +20,11 @@ const setAutoCompleteType = {
   search: 'off',
 };
 
-export const TextInputComponent = styled(MaskedTextInput).attrs(
-  ({ type = 'text' }: ITextInput) => ({
-    keyboardType: setKeyboardType[type],
-    autoCompleteType: setAutoCompleteType[type],
-    selectionColor: theme.COLORS.SECONDARY,
-  }),
-)<ITextInput>`
+export const TextInputComponent = styled.TextInput.attrs(({ type = 'text' }: ITextInputProps) => ({
+  keyboardType: setKeyboardType[type],
+  autoCompleteType: setAutoCompleteType[type],
+  selectionColor: theme.COLORS.SECONDARY,
+}))<ITextInputProps>`
   width: 100%;
   padding: 0px 12px;
   border-radius: 4px;

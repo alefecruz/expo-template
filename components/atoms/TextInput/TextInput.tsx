@@ -2,8 +2,7 @@ import React from 'react';
 
 import * as S from './styles';
 
-export type ITextInput = {
-  mask?: string;
+export type ITextInputProps = {
   size?: 'small' | 'medium' | 'large' | 'extra-large';
   value?: string;
   placeholder?: string;
@@ -14,13 +13,20 @@ export type ITextInput = {
   onChange?: (value: number | string) => void;
 };
 
-export const TextInput = ({ type = 'text', isDisabled, onChange, ...rest }: ITextInput) => {
+export const TextInput = ({
+  type = 'text',
+  isDisabled,
+  onChange,
+  value,
+  ...rest
+}: ITextInputProps) => {
   return (
     <S.TextInputComponent
       {...rest}
       onChangeText={async (value: string) => {
         onChange && onChange(type === 'decimal' || type === 'number' ? Number(value) : value);
       }}
+      value={value}
       editable={!isDisabled}
     />
   );

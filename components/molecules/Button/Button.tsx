@@ -2,9 +2,9 @@ import React from 'react';
 
 import * as S from './styles';
 
-import { TextComponent } from '@/components/atoms/Text';
+import { Text } from '@/components/atoms/Text';
 
-export type IButton = {
+export type IButtonProps = {
   label: string;
   onPress: (arg0?: any) => void;
   color?: S.IButtonVariants['color'];
@@ -12,7 +12,7 @@ export type IButton = {
   isDisabled?: boolean;
 };
 
-export const Button = ({ label, isLoading, isDisabled, onPress, ...rest }: IButton) => {
+export const Button = ({ label, isLoading, isDisabled, onPress, ...rest }: IButtonProps) => {
   const handleOnPress = () => {
     if (!isDisabled && !isLoading && onPress) onPress();
   };
@@ -23,9 +23,9 @@ export const Button = ({ label, isLoading, isDisabled, onPress, ...rest }: IButt
           {isLoading ? (
             <S.LoadingComponent />
           ) : (
-            <TextComponent format="H5" align="CENTER" letterCase="UPPER_CASE" color="LIGHT">
+            <Text format="H5" align="CENTER" letterCase="UPPER_CASE" color="LIGHT">
               {label}
-            </TextComponent>
+            </Text>
           )}
         </S.ContentLabel>
       )}

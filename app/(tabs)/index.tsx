@@ -1,13 +1,50 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
+import { Text } from '@/components/atoms/Text';
+import { Form, createQuestion, validate } from '@/libs/form';
+
+const myForm = (defaultValue?: string) => {
+  const questionEmail = createQuestion({
+    label: 'E-mail',
+    fields: [
+      {
+        fieldTextInputProps: {
+          name: 'email',
+          defaultValue,
+          validation: validate().required().isEmail(),
+        },
+      },
+    ],
+  });
+
+  const questionPassword = createQuestion({
+    label: 'Senha',
+    fields: [
+      {
+        fieldTextInputProps: {
+          name: 'password',
+          secureTextEntry: true,
+          defaultValue: '',
+          validation: validate().required(),
+        },
+      },
+    ],
+  });
+
+  return [questionEmail, questionPassword];
+};
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text format="H3">Form exemple</Text>
+      <Form
+        form={myForm('alefecrz@gmail.com')}
+        SubmitButtonProps={{
+          label: 'Enviar',
+          onPress: (data) => console.log(data),
+        }}
+      />
     </View>
   );
 }

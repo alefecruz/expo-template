@@ -52,9 +52,7 @@ export const LETTER_CASES = {
     text-transform: lowercase;
   `,
   CAPTALIZE: css``,
-  NONE: css`
-    text-transform: normal;
-  `,
+  NONE: css``,
 };
 
 export const ALIGNS = {

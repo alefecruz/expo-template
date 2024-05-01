@@ -11,13 +11,16 @@ export type ITextProps = {
   color?: S.ITextVariants['color'];
   align?: S.ITextVariants['align'];
   text?: string;
-  children?: React.ReactElement | string;
+  children?: string;
 };
 
 export const Text = ({ children, letterCase, text, ...rest }: ITextProps) => {
   return (
     <S.TextComponent {...rest}>
-      {letterCase === 'CAPTALIZE' && text ? capitalize(text) : text || children}
+      {(letterCase === 'CAPTALIZE' && text) ||
+      (letterCase === 'CAPTALIZE' && children && typeof children === 'string')
+        ? capitalize(text || children)
+        : text || children}
     </S.TextComponent>
   );
 };

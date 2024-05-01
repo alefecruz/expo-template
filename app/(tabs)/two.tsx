@@ -1,20 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
-import { TextInput } from '@/components/atoms/TextInput';
-import { Button } from '@/components/molecules/Button';
-
 export default function TabTwoScreen() {
-  return (
-    <View style={styles.container}>
-      <TextInput placeholder="CPF" mask="999.999.999-99" />
-      <Button
-        label="Test"
-        onPress={() => {
-          console.log('Hi');
-        }}
-      />
-    </View>
-  );
+  return <View style={styles.container} />;
 }
 
 const styles = StyleSheet.create({

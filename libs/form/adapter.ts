@@ -1,3 +1,19 @@
-import { Controller, useFormContext } from 'react-hook-form';
+import {
+  Controller,
+  useFormContext,
+  RegisterOptions,
+  FieldValues,
+  useForm,
+  FormProvider,
+  UseFormReturn,
+} from 'react-hook-form';
 
-export { Controller, useFormContext };
+export {
+  Controller,
+  useFormContext,
+  RegisterOptions,
+  FieldValues,
+  useForm,
+  FormProvider,
+  UseFormReturn,
+};
