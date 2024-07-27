@@ -1,4 +1,6 @@
-import React from 'react';
+import * as React from 'react';
+
+import * as S from './styles';
 
 import { Text, ITextProps } from '@/components/atoms/Text';
 import { useFormContext } from '@/libs/form/adapter';
@@ -10,5 +12,9 @@ export interface IFieldLabelProps extends ITextProps {
 export const FieldLabel = ({ renderMessage, text, ...rest }: IFieldLabelProps) => {
   const { watch } = useFormContext();
 
-  return <Text {...rest}>{renderMessage ? renderMessage(watch) : text}</Text>;
+  return (
+    <S.Container>
+      <Text {...rest}>{renderMessage ? renderMessage(watch) : text}</Text>
+    </S.Container>
+  );
 };

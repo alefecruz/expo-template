@@ -3,10 +3,15 @@ import React, { useEffect } from 'react';
 import * as S from './styles';
 import { IForm } from '../Form';
 
+import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import { IQuestion, IFields, IFieldRegistred } from '@/libs/form';
 import { useFormContext } from '@/libs/form/adapter';
+import { FieldBalanceValue } from '@/libs/form/components/FieldBalanceValue';
+import { FieldDatePicker } from '@/libs/form/components/FieldDatePicker';
 import { FieldLabel } from '@/libs/form/components/FieldLabel';
+import { FieldLink } from '@/libs/form/components/FieldLink';
+import { FieldSelectItem } from '@/libs/form/components/FieldSelectItem';
 import { FieldTextInput } from '@/libs/form/components/FieldTextInput';
 
 export const Question = ({
@@ -15,7 +20,13 @@ export const Question = ({
   label,
   orientation = 'row',
   mode,
-}: IQuestion & Pick<IForm, 'mode'>) => {
+  width = '100%',
+  isCenter = false,
+  type,
+  hideRequiredSymbol = false,
+  isHideMessageError,
+  isOmitLabelSpace = false,
+}: IQuestion & Pick<IForm, 'mode' | 'type' | 'isHideMessageError'>) => {
   const {
     watch,
     unregister,
@@ -34,6 +45,16 @@ export const Question = ({
       />
     ),
     fieldLabelProps: (props: any, index: number) => <FieldLabel key={index} {...props} />,
+    fieldLinkProps: (props: any, index: number) => <FieldLink key={index} {...props} />,
+    fieldDatePickerProps: (props: any, index: number) => (
+      <FieldDatePicker key={index} hasError={!!errors[props.name]} {...props} />
+    ),
+    fieldSelectItemProps: (props: any, index: number) => (
+      <FieldSelectItem key={index} hasError={!!errors[props.name]} {...props} />
+    ),
+    fieldBalanceValueProps: (props: any, index: number) => (
+      <FieldBalanceValue hasError={!!errors[props.name]} key={index} {...props} />
+    ),
   };
 
   const isRequired =
@@ -83,11 +104,42 @@ export const Question = ({
   };
 
   return showQuestion ? (
-    <S.Container hasError={validationField(fieldsNames)}>
+    <S.Container hasError={validationField(fieldsNames)} width={width}>
       {Array.from({ length: UNIQUE_QUESTION }, (_, i) => i + 1).map((questionIndex) => (
         <S.Wrapper key={questionIndex}>
-          {label && <Text text={`${label} ${isRequired && mode !== 'PRESENTATION' ? '*' : ''}`} />}
-          <S.ContentQuestion orientation={orientation}>
+          {!isOmitLabelSpace && (
+            <S.ContentLabel>
+              {label && (
+                <Text
+                  format="PARAGRAPH"
+                  color={type === 'LIGHT' ? 'LIGHT' : 'PRIMARY_DARK'}
+                  text={`${label} ${!hideRequiredSymbol && isRequired && mode !== 'PRESENTATION' ? '*' : ''}`}
+                />
+              )}
+
+              {!isHideMessageError && validationField(fieldsNames) === true && (
+                <S.ContentError>
+                  <Icon name="circleExclamation" color="DANGER" />
+                  {fieldsNames
+                    .map((name) => name && errors[name]?.message)
+                    .filter((message, index, self) => !self.includes(message, index + 1))
+                    .map((message, index) => {
+                      return (
+                        message && (
+                          <Text
+                            key={index}
+                            text={`${message.toString()}`}
+                            color="DANGER"
+                            format="STANDARD"
+                          />
+                        )
+                      );
+                    })}
+                </S.ContentError>
+              )}
+            </S.ContentLabel>
+          )}
+          <S.ContentQuestion orientation={orientation} isCenter={isCenter}>
             {fields.map((field, index) => {
               const [fieldKey] = Object.keys(field);
               const props = field[fieldKey as keyof typeof field];
@@ -95,25 +147,6 @@ export const Question = ({
               return props && fieldMapper[fieldKey as keyof typeof field](props, index);
             })}
           </S.ContentQuestion>
-          {validationField(fieldsNames) === true && (
-            <S.ContentError>
-              {fieldsNames
-                .map((name) => name && errors[name]?.message)
-                .filter((message, index, self) => !self.includes(message, index + 1))
-                .map((message, index) => {
-                  return (
-                    message && (
-                      <Text
-                        key={index}
-                        text={`- ${message.toString()}`}
-                        color="DANGER"
-                        format="STANDARD"
-                      />
-                    )
-                  );
-                })}
-            </S.ContentError>
-          )}
         </S.Wrapper>
       ))}
     </S.Container>

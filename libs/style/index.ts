@@ -1,2 +1,1 @@
-export * from './adapter';
-export * from './theme';
+export * from './apply-opacity';

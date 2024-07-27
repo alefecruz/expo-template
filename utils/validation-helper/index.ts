@@ -9,3 +9,4 @@ export * from './is-required';
 export * from './is-valid-email';
 export * from './is-valid-password';
 export * from './is-truth';
+export * from './is-valid-cpf';

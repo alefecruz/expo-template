@@ -3,38 +3,39 @@
     "name": "expo-template",
     "slug": "expo-template",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "scheme": "expotemplate",
+    "owner": "alefecrz",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#3C4D69",
+        "foregroundImage": "./assets/images/adaptive-icon.png"
+      },
+      "buildToolsVersion": "34.0.0",
+      "compileSdkVersion": 34,
+      "package": "com.expotemplate.app",
+      "targetSdkVersion": 34
     },
     "assetBundlePatterns": [
       "**/*"
     ],
+    "icon": "./assets/images/icon.png",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+    "orientation": "portrait",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain"
     },
+    "userInterfaceStyle": "light",
     "plugins": [
+      "expo-font",
       "expo-router",
-      "expo-font"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+      "expo-secure-store"
+    ]
   }
 }
+

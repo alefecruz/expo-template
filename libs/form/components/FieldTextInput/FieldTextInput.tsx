@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import * as S from './styles';
 
@@ -15,19 +15,19 @@ export interface IFieldTextInputProps extends ITextInputProps {
   defaultValue?: string;
   placeholder?: string;
   isReadOnly?: boolean;
+  widthPercentage?: '100%' | '50%' | '25%' | '12.5%';
 }
 
 export const FieldTextInput = ({
   name,
-  mask,
   validation,
   validateDependsOn,
   type = 'text',
-  size = 'medium',
   defaultValue,
   isDisabled = false,
   isReadOnly = false,
   hasError,
+  isValid,
   ...rest
 }: IFieldTextInputProps) => {
   const { control, getValues } = useFormContext();
@@ -43,7 +43,7 @@ export const FieldTextInput = ({
     );
 
   return (
-    <S.Container hasError={hasError} isDisabled={isDisabled}>
+    <S.Container isDisabled={isDisabled}>
       <Controller
         defaultValue={type === 'decimal' || type === 'number' ? Number(defaultValue) : defaultValue}
         name={name}
@@ -57,7 +57,16 @@ export const FieldTextInput = ({
           },
         }}
         render={({ field: { value, onChange } }) => {
-          return <TextInput {...rest} onChange={onChange} value={!_.isNil(value) ? value : ''} />;
+          return (
+            <TextInput
+              {...rest}
+              onChange={onChange}
+              value={!_.isNil(value) ? value : ''}
+              hasError={hasError}
+              isValid={validation && value && !hasError}
+              type={type}
+            />
+          );
         }}
       />
     </S.Container>

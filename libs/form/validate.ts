@@ -83,7 +83,7 @@ class Validation {
         validationHelper.isValidPassword(value) ||
         isEmpty(value) ||
         (options && options.message) ||
-        'A Senha deve conter pelo menos 8 caracteres, uma letra maiúscula e uma minúscula.',
+        'A Senha deve conter pelo menos 8 caracteres, letra maiúscula, letra minúscula e símbolos',
     );
     return this;
   }
