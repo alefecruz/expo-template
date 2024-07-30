@@ -1,9 +1,13 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+
+import { Text } from '@/components/atoms/Text';
 
 export default function App() {
   return (
     <View className="flex-1 items-center justify-center bg-white">
-      <Text>Hello World!</Text>
+      <Text format="H2" letterCase="CAPITALIZE" fontStyle="ITALIC">
+        Hello World!
+      </Text>
     </View>
   );
 }
